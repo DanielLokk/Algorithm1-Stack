@@ -7,11 +7,11 @@ class Stack {
         top = -1;
     }
 
-    boolean isEmpty() {
+    public boolean isEmpty() {
         return (top < 0);
     }
 
-    boolean push(int x) {
+    public boolean push(int x) {
         if (top >= (MAX - 1)) {
             return false;
         } else {
@@ -21,20 +21,18 @@ class Stack {
         }
     }
 
-    /* int pop() {
-        if (top < 0) {
-            return 0;
-        } else {
-            int x = a[top--];
-            return x;
+    public int pop() {
+        if (isEmpty()) {
+            System.out.println("Underflow program terminated");
+            System.exit(1);
         }
-    } */
 
-    int pop() {
-        return isEmpty() ? 0 : a[top--];
+        System.out.println("Removing " + peek());
+
+        return a[top--];
     }
     
-    
-    
- }
- 
+    int peek() {
+        return a[++top];
+    }
+}
